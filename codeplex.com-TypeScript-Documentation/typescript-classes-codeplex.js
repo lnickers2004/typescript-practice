@@ -111,4 +111,32 @@ sylvester.move();
  Here both 'Snake' and 'Horse' create a 'move' method that overrides
  the 'move' from 'Animal', giving it functionality specific to each class.
 * */
+/*
+* Private/Public modifiers
+*
+ Public by default
+
+ You may have noticed in the above examples we haven't had to use the
+ word 'public' to make any of the members of the class visible.
+ Languages like C# require that each member be explicitly labelled
+ 'public' to be visible. In TypeScript, each member is public by default.
+
+ You may still mark members a private, so you control what is
+ publicly visible outside of your class. We could have written
+ the 'Animal' class from the previous section like so:
+* */
+var Animal2 = (function () {
+    function Animal2(theName) {
+        this._name = theName;
+    }
+    Animal2.prototype.move = function (meters) {
+        console.log(this._name + " moved " + meters + "m.");
+    };
+    return Animal2;
+})();
+var myAnimal;
+var myOtherAnimal = new Animal2("jones");
+myAnimal = new Animal2("cat");
+myAnimal.move(parseInt("5"));
+myOtherAnimal.move(4);
 //# sourceMappingURL=typescript-classes-codeplex.js.map

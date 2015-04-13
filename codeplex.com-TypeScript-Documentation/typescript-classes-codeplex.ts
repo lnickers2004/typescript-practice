@@ -120,4 +120,45 @@ sylvester.move();
  the 'move' from 'Animal', giving it functionality specific to each class.
 * */
 
+/*
+* Private/Public modifiers
+*
+ Public by default
+
+ You may have noticed in the above examples we haven't had to use the
+ word 'public' to make any of the members of the class visible.
+ Languages like C# require that each member be explicitly labelled
+ 'public' to be visible. In TypeScript, each member is public by default.
+
+ You may still mark members a private, so you control what is
+ publicly visible outside of your class. We could have written
+ the 'Animal' class from the previous section like so:
+* */
+
+class Animal2 {
+    private _name:string;
+
+    constructor(theName:string) {
+        this._name = theName;
+    }
+
+    move(meters:number) {
+        console.log(this._name + " moved " + meters + "m.");
+    }
+}
+
+var myAnimal: Animal2;
+
+var myOtherAnimal: Animal2 = new Animal2("jones");
+
+myAnimal = new Animal2("cat");
+myAnimal.move(parseInt("5"));
+
+myOtherAnimal.move(4);
+
+
+
+
+
+
 
